@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>Deployment Tutorial 1</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  
+</head>
+
+<body style="background: #800080;">
+ <div class="login">
+	<h1>Medical Insurance Cost</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+    	<input type="text" name="age" placeholder="age" required="required" />
+        <input type="text" name="Sex (0-Female; 1-Male)" placeholder="Sex (0-Female; 1-Male)" required="required" />
+        <input type="text" name="BMI (1-30)" placeholder="BMI (1-30)" required="required" />
+        <input type="text" name="Children (Number starting from 0)" placeholder="Children (Number starting from 0)" required="required" />
+        <input type="text" name="Smoker (0-No; 1-Yes)" placeholder="Smoker (0-No; 1-Yes)" required="required" />
+        <input type="text" name="Region (1-South; 2-North; 3-West)" placeholder="Region (1-South; 2-North; 3-West)" required="required" />
+        	
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict Medical Insurance Cost</button>
+    </form>
+
+   <br>
+   <br>
+   {{ prediction_text }}
+
+ </div>
+
+
+</body>
+</html>
